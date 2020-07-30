@@ -7,6 +7,7 @@
 ## start of boilerplate to switch to project root ------------------------------
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 proj_dir="$( dirname "${script_dir}" )"
+export VPL_BUILD_DEPENDENCIES=${proj_dir}/_deps
 cd "${proj_dir}"
 set -o errexit
 
@@ -43,3 +44,12 @@ cmake --build . --config ${BUILD_MODE} --target package
 if [ -n "$TEAMCITY_VERSION" ]; then
   echo "##teamcity[publishArtifacts 'oneVPL/${CMAKE_BINARY_DIR}/*-all.zip=>']"
 fi
+
+# if [ "$1" == "gpl" ]; then
+#  cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_GPL_X264=ON -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=/usr/lib/x86_64-linux-gnu ..
+# else
+#  cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=/usr/lib/x86_64-linux-gnu ..
+# fi
+#
+# make -j $(nproc)
+# sudo make install
