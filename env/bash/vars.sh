@@ -95,7 +95,7 @@ VPL_ROOT=$(dirname -- "$(get_script_path "$vars_script_name")")
 export VPL_ROOT
 VPL_INCLUDE="$VPL_ROOT/include"
 export VPL_INCLUDE
-VPL_LIB="$VPL_ROOT/lib"
+VPL_LIB="$VPL_ROOT/lib/x86_64-linux-gnu"
 export VPL_LIB
 VPL_BIN="$VPL_ROOT/bin"
 export VPL_BIN
